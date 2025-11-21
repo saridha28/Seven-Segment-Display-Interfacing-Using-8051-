@@ -23,7 +23,7 @@ To interface a seven-segment display with the 8051 microcontroller and display d
 6.	Repeat steps 3-5 until all 10 digits are displayed.
 7.	Repeat the process infinitely.
 ## Program:
-
+```
 ORG 0000H       ; Start of program
 L: MOV DPTR, #0100H   ; Load DPTR with lookup table address
    MOV R1, #0AH       ; Load counter for 10 digits
@@ -47,7 +47,7 @@ AG: DJNZ R4, AG
 ORG 0100H       ; Lookup table for digits 0-9
 DB 3FH, 06H, 5BH, 4FH, 66H, 6DH, 7DH, 07H, 7FH, 6FH
 END
-
+```
 ## Explanation:
 1.Lookup Table (0100H - 0109H): Stores hexadecimal values for displaying digits 0-9.
 2.MOVC A, @A+DPTR: Retrieves the corresponding segment pattern for the digit.
